@@ -1,0 +1,53 @@
+﻿<Window x:Class="RGZ_TIMP.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RGZ_TIMP"
+        mc:Ignorable="d"
+        Title="Графопостроитель"
+        Height="700"
+        Width="1100">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Menu Grid.Row="0">
+            <MenuItem Header="Комманды">
+                <MenuItem Header="Создать" Click="CreateMenuItem_Click"/>
+                <MenuItem Header="Открыть" Click="OpenMenuItem_Click"/>
+                <MenuItem x:Name="SaveMenuItem" Header="Сохранить" Click="SaveMenuItem_Click"/>
+            </MenuItem>
+            <MenuItem x:Name="AnimationSettingsMenuItem" Header="Анимация" Click="AnimationSettingsMenuItem_Click"/>
+            <MenuItem x:Name="RunMenuItem" Header="Выполнить" Click="RunMenuItem_Click"/>
+            <MenuItem x:Name="StopMenuItem" Header="Остановить" Click="StopMenuItem_Click"/>
+            <MenuItem Header="?" Click="HelpMenuItem_Click"/>
+        </Menu>
+
+        <Canvas Grid.Row="1" x:Name="GraphCanvas" Background="WhiteSmoke">
+            <Canvas.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Добавить" Click="AddNodeMenuItem_Click"/>
+                </ContextMenu>
+            </Canvas.ContextMenu>
+
+            <Line x:Name="PreviewLine"
+                  Visibility="Collapsed"
+                  Stroke="#4A3D3D3D"
+                  StrokeThickness="2"
+                  StrokeDashArray="3,2"/>
+        </Canvas>
+
+        <Border Grid.Row="2" Background="#F1F1F1" BorderBrush="#D0D0D0" BorderThickness="1,1,1,0" Padding="10,8">
+            <DockPanel LastChildFill="False">
+                <StackPanel Orientation="Horizontal" DockPanel.Dock="Left">
+                    <TextBlock Text="Режим:" VerticalAlignment="Center" Margin="0,0,6,0"/>
+                    <TextBlock x:Name="ModeTextBlock" Text="Редактирование" FontWeight="SemiBold" VerticalAlignment="Center" Margin="0,0,16,0"/>
+                </StackPanel>
+            </DockPanel>
+        </Border>
+    </Grid>
+</Window>
