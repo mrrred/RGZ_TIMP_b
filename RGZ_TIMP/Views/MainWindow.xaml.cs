@@ -461,7 +461,7 @@ namespace RGZ_TIMP.Views
 
         private void HelpMenuItem_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show(this, "Демонстрационный макет интерфейса без реализации логики.", "Справка", MessageBoxButton.OK, MessageBoxImage.Information);
+            MessageBox.Show(this, "Графопостроитель ориентированного графа для конечного автомата.", "Справка", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
         private void AddNodeMenuItem_Click(object sender, RoutedEventArgs e)
