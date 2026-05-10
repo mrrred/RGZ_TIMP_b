@@ -10,9 +10,13 @@ namespace RGZ_TIMP.Views;
 public sealed class GraphNodeControl : UserControl
 {
     private readonly Grid _root;
+    private readonly Ellipse _body;
     private readonly Ellipse _handle;
     private readonly MenuItem _deleteMenuItem;
     private readonly double _radius;
+    private readonly Brush _defaultFill = Brushes.White;
+    private readonly Brush _highlightFill = Brushes.Gold;
+    private readonly Brush _startHighlightFill = Brushes.IndianRed;
 
     public GraphNodeControl(int nodeNumber)
     {
@@ -23,9 +27,9 @@ public sealed class GraphNodeControl : UserControl
 
         _root = new Grid();
 
-        var body = new Ellipse
+        _body = new Ellipse
         {
-            Fill = Brushes.White,
+            Fill = _defaultFill,
             Stroke = Brushes.Black,
             StrokeThickness = 2
         };
@@ -50,7 +54,7 @@ public sealed class GraphNodeControl : UserControl
             Cursor = Cursors.Hand
         };
 
-        _root.Children.Add(body);
+        _root.Children.Add(_body);
         _root.Children.Add(title);
         _root.Children.Add(_handle);
 
@@ -144,6 +148,16 @@ public sealed class GraphNodeControl : UserControl
     public void RefreshHandleVisibility()
     {
         UpdateHandleVisibility();
+    }
+
+    public void SetHighlighted(bool isHighlighted)
+    {
+        _body.Fill = isHighlighted ? _highlightFill : _defaultFill;
+    }
+
+    public void SetStartHighlighted(bool isHighlighted)
+    {
+        _body.Fill = isHighlighted ? _startHighlightFill : _defaultFill;
     }
 
     public void UpdateNodeToolTip(Canvas canvas, IEnumerable<GraphEdgeControl> outgoingEdges)
