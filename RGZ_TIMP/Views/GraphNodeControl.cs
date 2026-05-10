@@ -5,7 +5,7 @@ using System.Windows.Media;
 using System.Windows.Shapes;
 using System.Linq;
 
-namespace RGZ_TIMP;
+namespace RGZ_TIMP.Views;
 
 public sealed class GraphNodeControl : UserControl
 {

@@ -4,7 +4,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Shapes;
 
-namespace RGZ_TIMP;
+namespace RGZ_TIMP.Views;
 
 public sealed class GraphEdgeControl
 {
