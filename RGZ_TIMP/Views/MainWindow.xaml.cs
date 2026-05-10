@@ -51,7 +51,6 @@ namespace RGZ_TIMP.Views
             PreviewKeyDown += MainWindow_PreviewKeyChanged;
             PreviewKeyUp += MainWindow_PreviewKeyChanged;
 
-            //BuildMockGraph();
             _nextNodeNumber = _nodes.Count == 0 ? 1 : _nodes.Max(node => node.NodeNumber) + 1;
             SetProjectState(false);
         }
@@ -67,20 +66,6 @@ namespace RGZ_TIMP.Views
             {
                 node.RefreshHandleVisibility();
             }
-        }
-
-        private void BuildMockGraph()
-        {
-            var node1 = AddNode(1, 170, 150);
-            var node2 = AddNode(2, 360, 130);
-            var node3 = AddNode(3, 300, 300);
-
-            AddEdge(node1, node2, -10);
-            AddEdge(node2, node1, -10);
-            AddEdge(node2, node3);
-            AddEdge(node1, node3);
-
-            UpdateNodeToolTips();
         }
 
         private void UpdateOppositeOffsets(GraphNodeControl from, GraphNodeControl to)
